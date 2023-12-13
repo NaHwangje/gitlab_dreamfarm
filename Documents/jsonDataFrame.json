@@ -11,57 +11,56 @@
 			"ALRAMTMEPL": "[int], //저온경보 한계설정",
 			"TEL": "01012345678, //전송할 메세지 전화번호",
 			"AWSBIT": "[int] // AWS사용여부 0-사용 안함 1-사용"
-		}
+		},
+		"UNIT_SETTING": [
+			{
+				"UID": "[int] //작동기 아이디",
+				"UTYPE": "[int] //작동기 온/오프-오픈/클로즈 정의 0-온/오프 1-오픈/클로즈",
+				"UGROUP": "[int] //작동기 그룹 정의",
+				"UCH": "[int] //작동기 온오프 채널",
+				"UOPENCH": "[int] //작동기 오픈 채널",
+				"UCLOSECH": "[int] // 작동기 클로즈 채널",
+				"UMVTIME": "[int] //작동기 오픈 동작시간",
+				"USTTIME": "[int] //작동기 클로즈 동작시간",
+				"UOPENTIME": "[int] //작동기 온 동작시간",
+				"UCLOSETIME": "[int] //작동기 오프 동작시간",
+				"UOPTYPE": "[int] //작동시 동작유형 정의 0-수동 1-자동(타이머) 2-원격",
+				"UTIMER": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+			},
+			{
+				"UID": "[int] //작동기 아이디",
+				"UTYPE": "[int] //작동기 온/오프-오픈/클로즈 정의 0-온/오프 1-오픈/클로즈",
+				"UGROUP": "[int] //작동기 그룹 정의",
+				"UCH": "[int] //작동기 온오프 채널",
+				"UOPENCH": "[int] //작동기 오픈 채널",
+				"UCLOSECH": "[int] // 작동기 클로즈 채널",
+				"UMVTIME": "[int] //작동기 오픈 동작시간",
+				"USTTIME": "[int] //작동기 클로즈 동작시간",
+				"UOPENTIME": "[int] //작동기 온 동작시간",
+				"UCLOSETIME": "[int] //작동기 오프 동작시간",
+				"UOPTYPE": "[int] //작동시 동작유형 정의 0-수동 1-자동(타이머) 2-원격",
+				"UTIMER": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+			}
+		],
+		"SENSOR_SETTING": [
+			{
+				"SID": "[int] //센서 아이디 0~7",
+				"SCH": "[int], //센서 채널 0~7",
+				"SRESERVERD": "[int], //센서 예약어 정의 ",
+				"SMULT": "[float], //센서 보정값계수(멀티값) A : 0.1234",
+				"SOFFSET": "[float], //센서 보정값계수(오프셋값) B :0.1234",
+				"SEQ": "[y=ax+b]"
+			},
+			{
+				"SID": "[int] //센서 아이디 0~7",
+				"SCH": "[int], //센서 채널 0~7",
+				"SRESERVERD": "[int], //센서 예약어 정의 ",
+				"SMULT": "[float], //센서 보정값계수(멀티값) A : 0.1234",
+				"SOFFSET": "[float], //센서 보정값계수(오프셋값) B :0.1234",
+				"SEQ": "[y=ax+b]"
+			}
+		]
 	},
-	"UNIT_SETTING": [
-		{
-			"UID": "[int] //작동기 아이디",
-			"UTYPE": "[int] //작동기 온/오프-오픈/클로즈 정의 0-온/오프 1-오픈/클로즈",
-			"UGROUP": "[int] //작동기 그룹 정의",
-			"UCH": "[int] //작동기 온오프 채널",
-			"UOPENCH": "[int] //작동기 오픈 채널",
-			"UCLOSECH": "[int] // 작동기 클로즈 채널",
-			"UMVTIME": "[int] //작동기 오픈 동작시간",
-			"USTTIME": "[int] //작동기 클로즈 동작시간",
-			"UOPENTIME": "[int] //작동기 온 동작시간",
-			"UCLOSETIME": "[int] //작동기 오프 동작시간",
-			"UOPTYPE": "[int] //작동시 동작유형 정의 0-수동 1-자동(타이머) 2-원격",
-			"UTIMER": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-		},
-		{
-			"UID": "[int] //작동기 아이디",
-			"UTYPE": "[int] //작동기 온/오프-오픈/클로즈 정의 0-온/오프 1-오픈/클로즈",
-			"UGROUP": "[int] //작동기 그룹 정의",
-			"UCH": "[int] //작동기 온오프 채널",
-			"UOPENCH": "[int] //작동기 오픈 채널",
-			"UCLOSECH": "[int] // 작동기 클로즈 채널",
-			"UMVTIME": "[int] //작동기 오픈 동작시간",
-			"USTTIME": "[int] //작동기 클로즈 동작시간",
-			"UOPENTIME": "[int] //작동기 온 동작시간",
-			"UCLOSETIME": "[int] //작동기 오프 동작시간",
-			"UOPTYPE": "[int] //작동시 동작유형 정의 0-수동 1-자동(타이머) 2-원격",
-			"UTIMER": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-		}
-	],
-	"SENSOR_SETTING": [
-		{
-			"SID": "[int] //센서 아이디 0~7",
-			"SCH": "[int], //센서 채널 0~7",
-			"SRESERVERD": "[int], //센서 예약어 정의 ",
-			"SMULT": "[float], //센서 보정값계수(멀티값) A : 0.1234",
-			"SOFFSET": "[float], //센서 보정값계수(오프셋값) B :0.1234",
-			"SEQ": "[y=ax+b]"
-		},
-		{
-			"SID": "[int] //센서 아이디 0~7",
-			"SCH": "[int], //센서 채널 0~7",
-			"SRESERVERD": "[int], //센서 예약어 정의 ",
-			"SMULT": "[float], //센서 보정값계수(멀티값) A : 0.1234",
-			"SOFFSET": "[float], //센서 보정값계수(오프셋값) B :0.1234",
-			"SEQ": "[y=ax+b]"
-		}
-		
-	],
 	"REAL_DATA": {
 		"CID": "AABBCC000000 // Client ID",
 		"SENSOR_VALUE": [
