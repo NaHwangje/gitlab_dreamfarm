@@ -1,6 +1,6 @@
 # dream_farm_mqtt
 
-A new Flutter project.
+DreamFarm MQTT Project
 
 ## Getting Started
 

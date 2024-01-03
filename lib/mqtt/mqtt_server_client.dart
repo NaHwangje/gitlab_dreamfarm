@@ -10,7 +10,7 @@ import 'dart:io';
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
 
-final client = MqttServerClient('livewalk901.iptime.org', '1883');
+final client = MqttServerClient('livewalk901.iptime.org', '9001');
 
 var pongCount = 0; // Pong counter
 
@@ -56,7 +56,7 @@ Future<int> main() async {
       .withWillMessage('My Will message')
       .startClean() // Non persistent session for testing
       .withWillQos(MqttQos.atLeastOnce)
-      .authenticateAs('user', '1234');
+      .authenticateAs('user2', 'user2');
 
   print('Mosquitto client connecting....');
   client.connectionMessage = connMess;
@@ -123,7 +123,7 @@ Future<int> main() async {
   /// Our known topic to publish to
   const pubTopic = 'Dart/Mqtt_client/tea';
   final builder = MqttClientPayloadBuilder();
-  builder.addString('whattjwasjdlaskdjfashjdkljfjahsdf');
+  builder.addString('what is love');
 
   /// Subscribe to it
   print('Subscribing to the Dart/Mqtt_client/testtopic topic');
@@ -136,7 +136,7 @@ Future<int> main() async {
   /// Ok, we will now sleep a while, in this gap you will see ping request/response
   /// messages being exchanged by the keep alive mechanism.
   print('Sleeping....');
-  await MqttUtilities.asyncSleep(60);
+  await MqttUtilities.asyncSleep(3600);
 
   /// Finally, unsubscribe and exit gracefully
   print('Unsubscribing');
