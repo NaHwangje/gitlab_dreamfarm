@@ -121,9 +121,10 @@ Future<int> main() async {
   /// Lets publish to our topic
   /// Use the payload builder rather than a raw buffer
   /// Our known topic to publish to
-  const pubTopic = 'Dart/Mqtt_client/tea';
+  const pubTopic = 'Dart/Mqtt_client/tea/pot';
   final builder = MqttClientPayloadBuilder();
-  builder.addString('what is love');
+  builder.addString(
+      '{"SENSOR_VALUE":[{"SID":"0","VALUE":"0.00"},{"SID":"1","VALUE":"0.50"},{"SID":"2","VALUE":"1.00"},{"SID":"3","VALUE":"1.50"},{"SID":"4","VALUE":"2.00"},{"SID":"5","VALUE":"2.50"},{"SID":"6","VALUE":"3.00"},{"SID":"7","VALUE":"3.50"}],"UNIT_STATUS":[{"UID":"0","STATUS":"0"},{"UID":"1","STATUS":"0"},{"UID":"2","STATUS":"0"},{"UID":"3","STATUS":"0"},{"UID":"4","STATUS":"0"},{"UID":"5","STATUS":"0"},{"UID":"6","STATUS":"0"},{"UID":"7","STATUS":"0"},{"UID":"8","STATUS":"0"},{"UID":"9","STATUS":"0"},{"UID":"10","STATUS":"0"},{"UID":"11","STATUS":"0"},{"UID":"12","STATUS":"0"},{"UID":"13","STATUS":"0"},{"UID":"14","STATUS":"0"},{"UID":"15","STATUS":"0"}]}');
 
   /// Subscribe to it
   print('Subscribing to the Dart/Mqtt_client/testtopic topic');
@@ -131,7 +132,12 @@ Future<int> main() async {
 
   /// Publish it
   print('Publishing our topic');
-  client.publishMessage(pubTopic, MqttQos.exactlyOnce, builder.payload!);
+  for (int i = 0; i < 360000; i++) {
+    Future.delayed(Duration(seconds: i), () {
+      client.publishMessage(pubTopic, MqttQos.exactlyOnce, builder.payload!);
+    });
+  }
+
 
   /// Ok, we will now sleep a while, in this gap you will see ping request/response
   /// messages being exchanged by the keep alive mechanism.
