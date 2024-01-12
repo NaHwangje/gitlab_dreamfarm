@@ -3,11 +3,13 @@
 
 - [Json 명세서](#json-명세서)
     - [**1. 전체 구조**](#1-전체-구조)
-    - [**2. CTRL\_SETTING 장치의 제어 설정**](#2-ctrl_setting-장치의-제어-설정)
-    - [**3. UNIT\_SETTING 작동기 설정**](#3-unit_setting-작동기-설정)
-    - [**4. SENSOR\_SETTING 센서 설정**](#4-sensor_setting-센서-설정)
-    - [**5. SENSOR\_DATA 센서 측정값(단방향)**](#5-sensor_data-센서-측정값단방향)
-    - [**6. UNIT\_STATUS 작동기 상태**](#6-unit_status-작동기-상태)
+    - 설정값
+      - [**2. CTRL\_SETTING 장치의 제어 설정**](#2-ctrl_setting-장치의-제어-설정)
+      - [**3. UNIT\_SETTING 작동기 설정**](#3-unit_setting-작동기-설정)
+      - [**4. SENSOR\_SETTING 센서 설정**](#4-sensor_setting-센서-설정)
+    - 데이터
+      - [**5. SENSOR\_DATA 센서 측정값(단방향)**](#5-sensor_data-센서-측정값단방향)
+      - [**6. UNIT\_STATUS 작동기 상태**](#6-unit_status-작동기-상태)
 
 ---
 
@@ -179,7 +181,7 @@
 - `"UOPTYPE"`: 작동시 동작유형 정의 (0-수동, 1-자동(타이머), 2-원격)
 - `"UTIMER"`:
     - 작동기 타이머 설정 (1분단위)
-    - [형식]1바이트 단위, 16진수 표기법, hexString 360
+    - [형식]1바이트 단위, 16진수 표기법, hexString 360(16진수 문자열 길이 360)
     - [조건]1비트는 0,1로 표현이 가능한데, 0이면 off, 1이면 on이다. 
     - 1일 = 24시간 = 1440분 x2 (x2하는 이유는 1개의 분마다 켜진 상태와 꺼진 상태 2가지가 있기 때문)
     - 1440/8 = 180 이므로 180 x2 하면 360개.  
@@ -190,7 +192,7 @@
       <br>
 
 **비고**
-- 같은 형태의 SENSOR_DATA 이 여러개 반복 입력됨
+- 같은 형태의 UNIT_SETTING 이 여러개 반복 입력됨
 
 ```json
 {
@@ -233,7 +235,7 @@
     - 변경 수식 정의 (a=SMULT, b=SOFFSET, x=센서데이터)
 
 **비고**
-- 같은 형태의 SENSOR_DATA 이 여러개 반복 입력됨
+- 같은 형태의 SENSOR_SETTING 여러 개 반복 입력됨
 
    <br>
 
@@ -267,7 +269,7 @@
 - `"value"`: 센서값 (부동 소수점 형태, 예: 10.23, 80.03)
 
 **비고**
-- 같은 형태의 SENSOR_DATA 이 여러개 반복 입력됨
+- 같은 형태의 SENSOR_DATA 여러 개 반복 입력됨
 
 ```json
 {
@@ -299,7 +301,7 @@
 - `"status"`: 작동기 상태 (0-off, 1-on, 2-open, 3-stop, 4-close)
 
 **비고**
-- 같은 형태의 UNIT_STATUS 이 여러개 반복 입력됨
+- 같은 형태의 UNIT_STATUS 여러 개 반복 입력됨
 ```json
 {
   "UNIT_STATUS": [
